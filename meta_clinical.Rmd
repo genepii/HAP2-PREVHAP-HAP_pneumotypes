@@ -1,0 +1,54 @@
+---
+title: "Clinical Summary Table"
+output:
+  word_document:
+    toc: true
+  html_document:
+    toc: true
+  pdf_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+options(qwraps2_markup = "markdown")
+library(dplyr)
+library(qwraps2)
+library(ggplot2)
+# Load and prepare data
+clinical <- read.delim("C:/Users/ananihu/Desktop/Big_Cohort_PREVHAPIBIS2/NEW/PREVHAP/mefisto/mefisto_phabox/ALL_samples/HAP/Before_ATB/analysis/Final_analysis/Clinical/meta_clinical_ibis.txt")
+clinical$Age <- as.numeric(clinical$Age)
+clinical$SAPSII <- as.numeric(clinical$SAPSII)
+clinical$ICU <- as.numeric(clinical$ICU)
+# Define summary and p-value tables
+our_summary <- list(
+  "Age" = list("Age n; median (IQR)" = ~ qwraps2::median_iqr(Age, na_rm = TRUE)),
+  "SAPSII" = list("SAPSII n; median (IQR)" = ~ qwraps2::median_iqr(SAPSII, na_rm = TRUE)),
+  "ICU" = list("ICU n; median (IQR)" = ~ qwraps2::median_iqr(ICU, na_rm = TRUE)),
+  "weight" = list("weight n; median (IQR)" = ~ qwraps2::median_iqr(weight, na_rm = TRUE)),
+  "bmi" = list("bmi n; median (IQR)" = ~ qwraps2::median_iqr(bmi, na_rm = TRUE)),
+  "Sex" = list("Male n (%)" = ~ qwraps2::n_perc(Sex == "Male", na_rm = TRUE)),
+  "ARDS_condition" = list("ARDS_condition n (%)" = ~ qwraps2::n_perc(ARDS_condition == "ARDS", na_rm = TRUE)),
+  "Death" = list("Death n (%)" = ~ qwraps2::n_perc(Death == "Deceased", na_rm = TRUE)),
+  "treatment" = list("treatment n (%)" = ~ qwraps2::n_perc(treatment == "Failure", na_rm = TRUE))
+)
+
+pvalues <- list(
+  "Age" = list("Age n; median (IQR)" =~round(kruskal.test(Age ~ cluster, clinical)$p.value, digits = 4)),
+   "SAPSII" = list("SAPSII n; median (IQR)" =~round(kruskal.test(SAPSII ~ cluster, clinical)$p.value, digits = 4)),
+  "ICU" = list("ICU n; median (IQR)" =~round(kruskal.test(ICU ~ cluster, clinical)$p.value, digits = 4)),
+  "weight" = list("weight n; median (IQR)" =~round(kruskal.test(weight ~ cluster, clinical)$p.value, digits = 4)),
+  "bmi" = list("bmi n; median (IQR)" =~round(kruskal.test(bmi ~ cluster, clinical)$p.value, digits = 4)),
+  "Sex" = list("Male n (%)" =~round(chisq.test(clinical$Sex, clinical$cluster)$p.value, digits = 4)),
+   "ARDS_condition" = list("ARDS_condition n (%)" =~round(chisq.test(clinical$cluster, clinical$ARDS_condition)$p.value, digits = 4)),
+  "Death" = list("Death n (%)" =~round(chisq.test(clinical$Death, clinical$cluster)$p.value, digits = 4)),
+  "treatment" = list("treatment n (%)" =~round(chisq.test(clinical$treatment, clinical$cluster)$p.value, digits = 4))
+  )
+
+
+combined_summary <- cbind(
+  qwraps2::summary_table(dplyr::group_by(clinical, cluster), our_summary),
+  qwraps2::summary_table(clinical, pvalues)
+)
+```{r generate-table, results='asis', message=FALSE, warning=FALSE,echo=FALSE}
+print(combined_summary, rmarkdown = TRUE)
+
