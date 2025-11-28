@@ -130,7 +130,7 @@ done < "sampleID.txt"
 
 mkdir -p krak2
 input_directory="${workfile}/paired"
-kraken2_db="/srv/scratch/lapendryau/kraken2_db_files_iai/kraken_db_2"
+kraken2_db="/srv/scratch/kraken2_db_files_iai/kraken_db_2"
 while IFS= read -r sample_id; do
     output_report="krak2/${sample_id}.tsv"
     if [[ ! -f "$output_report" ]]; then
@@ -268,5 +268,7 @@ cat viral_contigs.tsv | awk -F'\t' '{print $2}'|uniq > bacterial_contigs_list.tx
 grep -f bacterial_contigs_list.txt allcontigs_lin.fasta | sed 's/ /\n/'g > all_bacterial_contigs.fasta
 
 
-
+//sortmerna
+for i in *.fastq* ; do  sortmerna --ref /srv/scratch/ananihu/silva/SILVA_138.2_NR99_LSU_SSU_Ref.fasta  --reads $i --aligned /srv/scratch/ananihu/Big_IBIS/aligned/$i --fastx --other /srv/scratch/ananihu/Big_IBIS/nonaligned/$i -v --workdir /srv/scratch/ananihu/Big_IBIS/ --threads 118 -m 80000 
+rm -r /srv/scratch/ananihu/Big_IBIS/kvdb ; done
 
