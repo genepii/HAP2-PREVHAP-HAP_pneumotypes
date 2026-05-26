@@ -57,12 +57,19 @@ The following external tools are used throughout the workflow.
 ________________________________________
 
 ## Installation Instructions for Bioinformatics Tools
-The workflow relies on several bioinformatics tools that can be installed using Conda/Mamba.
+
+The workflow relies on several bioinformatics tools that can be installed using Conda/Mamba.  
 We strongly recommend using Conda for reproducibility and dependency management.
 
-# Install Miniconda
+---
+
+### Install Miniconda
+
+```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
 bash Miniconda3-latest-Linux-x86_64.sh
+
 Create Workflow Environment
 conda create -n hap2_env python=3.10 -y
 conda activate hap2_env
@@ -79,30 +86,40 @@ conda install -c bioconda -c conda-forge \
     bwa \
     samtools \
     humann
+	
+``` 
 
 # Install PhaBOX2
-PhaBOX2 is installed separately using pip:
+
+PhaBOX2 can be installed via pip:
+
 pip install phabox2
+
 Alternatively:
+
 git clone https://github.com/KennthShang/PhaBOX.git
 cd PhaBOX
 pip install -r requirements.txt
 
 # Install TkNA
-TkNA installation instructions are available at:
+
+Installation instructions are available at:
 https://github.com/CAnBioNet/TkNA
+
 Example installation:
+
 git clone https://github.com/CAnBioNet/TkNA.git
 cd TkNA
 pip install -r requirements.txt
 
 # Install Cytoscape
-Cytoscape installation instructions on Windows system are available at:
+
+Cytoscape installation instructions (Windows/Linux/macOS):
 https://cytoscape.org/download.html
-________________________________________
-## R Package Installation
-The following R packages are required.
-CRAN Packages
+
+# R Package Installation
+
+#CRAN Packages
 install.packages(c(
   "tidyverse",
   "data.table",
@@ -127,7 +144,9 @@ install.packages(c(
   "ROCR",
   "pROC"
 ))
-Bioconductor Packages
+
+# Bioconductor Packages
+
 if (!require("BiocManager"))
     install.packages("BiocManager")
 
@@ -143,15 +162,21 @@ install.packages(c(
   "FFTrees",
   "reticulate"
 ))
-________________________________________
-## Python Package Installation
+
+# Python Package Installation
+
 If using pip instead of conda:
+
 pip install pandas numpy scipy scikit-learn matplotlib seaborn networkx jupyter
-________________________________________
-## Configuration
-Example Configuration File
-RASFLOW config file in configs folder
+Configuration
+
+#Example Configuration File
+
+RASFLOW config file is located in the configs folder:
+
 config/config_main.yaml
+
+
 ________________________________________
 ## Input Data Formats
 Metadata Table (example in the metadata folder)
