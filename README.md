@@ -33,23 +33,27 @@ ________________________________________
 
 ## Bioinformatics Pipelines
 The RASFLOW pipeline (https://link.springer.com/article/10.1186/s12859-020-3433-x) was used to analyze human transcriptomic data and infer a count matrix of human coding genes. The input is trimmed sequencing reads in FASTQ format, and the output is a matrix mapping all sample reads to coding human genes. The output matrix is provided in the data folder.
-Bioinformatics Tools
+
+## Bioinformatics Tools
 The following external tools are used throughout the workflow.
-Tool	Purpose
-FastQC	Sequencing quality control
-fastp	Read trimming and filtering
-Kraken2	Read taxonomic classification
-KrakenTools	Taxonomic extraction and report processing
-SPAdes	Metagenomic assembly
-CD-HIT	Sequence dereplication and clustering
-Diamond	Protein alignment
-PhaBOX2	Viral prediction and viral sequence identification
-SortMeRNA	Ribosomal RNA removal
-HUMAnN	Bacterial metabolic pathway prediction
-TkNA	In silico causality inference and transkingdom network analysis
-BWA	Read mapping to contigs
-Samtools	BAM/SAM processing
-Cytoscape	Network visualization
+
+| Tool        | Purpose |
+|-------------|---------|
+| FastQC      | Sequencing quality control |
+| fastp       | Read trimming and filtering |
+| Kraken2     | Read taxonomic classification |
+| KrakenTools | Taxonomic extraction and report processing |
+| SPAdes      | Metagenomic assembly |
+| CD-HIT      | Sequence dereplication and clustering |
+| Diamond     | Protein alignment |
+| PhaBOX2     | Viral prediction and viral sequence identification |
+| SortMeRNA   | Ribosomal RNA removal |
+| HUMAnN      | Bacterial metabolic pathway prediction |
+| TkNA        | In silico causality inference and transkingdom network analysis |
+| BWA         | Read mapping to contigs |
+| Samtools    | BAM/SAM processing |
+| Cytoscape   | Network visualization |
+
 ________________________________________
 
 ## Installation Instructions for Bioinformatics Tools
@@ -153,16 +157,20 @@ ________________________________________
 Metadata Table (example in the metadata folder)
 Tab-separated file.
 Required columns:
-Column	Description
-sample_id	Unique sample identifier
-patient_id	Unique patient identifier
-condition	Clinical grouping
-timepoint	Sampling time
-outcome	Clinical outcome
+| Column name  | Description |
+|--------------|-------------|
+| sample_id    | Unique sample identifier |
+| patient_id   | Unique patient identifier |
+| condition    | Clinical grouping |
+| timepoint    | Sampling time |
+| outcome      | Clinical outcome |
+
 Example:
-sample_id   patient_id  condition   cluster
-S01 P001    HAP Low risk
-S02 P002    Control High risk
+
+| sample_id | patient_id | condition | cluster |
+|----------|------------|-----------|----------|
+| S01      | P001       | HAP       | Low risk |
+| S02      | P002       | Control   | High risk |
 ________________________________________
 Taxonomic Abundance Matrix (example in the data folder)
 Rows correspond to taxa. Columns correspond to samples.
@@ -366,13 +374,13 @@ All Singularity image files (.sif) used in this workflow are available directly 
 
 
 ## Mapping Scripts to Manuscript Figures
-Manuscript Figure	Script
-Figure 1	Powerpoint
-Figure 2	scripts/ figure2.R
-Figure 3	scripts/ figure3.R
-Figure 4	scripts/ figure4.R
-Figure 5	scripts/ figure5.R
-Figure 6	scripts/ figure6.R
-Supplementary/extended Figures	scripts/ Additional_scripts.R
-________________________________________
 
+| Manuscript Figure                     | Script                         |
+|--------------------------------------|--------------------------------|
+| Figure 1                             | Powerpoint                     |
+| Figure 2                             | scripts/figure2.R              |
+| Figure 3                             | scripts/figure3.R              |
+| Figure 4                             | scripts/figure4.R              |
+| Figure 5                             | scripts/figure5.R              |
+| Figure 6                             | scripts/figure6.R              |
+| Supplementary/extended Figures       | scripts/Additional_scripts.R   |
