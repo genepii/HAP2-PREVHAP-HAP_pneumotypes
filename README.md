@@ -166,9 +166,10 @@ install.packages(c(
 If using pip instead of conda:
 
 pip install pandas numpy scipy scikit-learn matplotlib seaborn networkx jupyter
-Configuration
 
-#Example Configuration File
+# Configuration
+
+# Example Configuration File
 
 RASFLOW config file is located in the configs folder:
 
