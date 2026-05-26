@@ -196,12 +196,15 @@ Example:
 | S01      | P001       | HAP       | Low risk |
 | S02      | P002       | Control   | High risk |
 ________________________________________
-Taxonomic Abundance Matrix (example in the data folder)
-Rows correspond to taxa. Columns correspond to samples.
-Example:
-Taxon   S01 S02 S03
-Prevotella corporis  10  2   4
-Veillonella_sp   0   8   3
+
+## Taxonomic Abundance Matrix (Example)
+
+Rows correspond to taxa, and columns correspond to samples.
+
+| Taxon               | S01 | S02 | S03 |
+|--------------------|-----|-----|-----|
+| Prevotella corporis | 10  | 2   | 4   |
+| Veillonella sp.     | 0   | 8   | 3   |
 ________________________________________
 FASTQ Input (example in the data folder)
 Paired-end FASTQ format:
