@@ -211,10 +211,9 @@ Paired-end FASTQ format:
 sample_1_R1.fastq.gz
 sample_1_R2.fastq.gz
 ________________________________________
-## Workflow Overview
+# Workflow Overview
 This pipeline performs end-to-end metagenomic/metatranscriptomic processing, including quality control, host read removal, taxonomic profiling, de novo assembly, contig dereplication, and bacterial/viral identification.
 ________________________________________
-# Workflow Overview
 
 ---
 
