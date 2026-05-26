@@ -471,7 +471,7 @@ Based on:
 
 ## Reproducibility
 All analyses are executed using Singularity containers to ensure computational reproducibility and portability across computing environments.
-All Singularity image files (.sif) used in this workflow are available directly in the Git repository to facilitate full reproducibility of the analysis (images_singularity folder).
+All Singularity image files (.def) used in this workflow are available directly in the Git repository to facilitate full reproducibility of the analysis (images_singularity folder).
 
 
 ## Mapping Scripts to Manuscript Figures
