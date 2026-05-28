@@ -1,0 +1,16 @@
+{ 
+"name": "ibis", 
+"experiments": [ 
+{ 
+"name": "ibis1", 
+"dataFile": "data.csv", 
+"treatmentMapFile": "data_graph_map.csv" 
+}, 
+{ 
+"name": "ibis2", 
+"dataFile": "data.csv", 
+"treatmentMapFile": "data_graph_map.csv" 
+} 
+], 
+"measurableTypeMapFile": "type_map.csv" 
+} 

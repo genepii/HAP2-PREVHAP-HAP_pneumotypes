@@ -1,0 +1,37 @@
+{
+    "comparisonTreatments": [
+        "P1",
+        "P2"
+    ],
+    "differenceMethod": "mannwhitney",
+    "differencePValueThresholds": {
+        "individual": {
+            "virus": 1,
+            "bacteria": 1,
+			"genes": 1,
+            "fungi": 1
+        },
+        "combined": {
+            "virus": 1,
+            "bacteria": 1,
+			"genes": 1,
+            "fungi": 1
+        },
+        "corrected": {
+            "virus": 1,
+            "bacteria": 1,
+			"genes": 1,
+            "fungi": 1
+        }
+    },
+    "foldChangeType": "mean",
+    "foldChangeFilterMethod": "allsamesign",
+    "networkTreatment": "P2",
+    "correlationMethod": "spearman",
+    "correlationPValueThresholds": {
+        "individual": 0.05,
+        "combined": 1,
+        "corrected": 1
+    },
+    "correlationFilterMethod": "allsamesign"
+}
