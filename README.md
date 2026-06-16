@@ -434,7 +434,7 @@ Dereplicated contigs are screened against a bacterial reference database using D
 
 ---
 
-## Step 11: RASflow RNA-seq Analysis Pipeline
+## Step 11: RASflow RNA-seq Analysis Pipeline (IMPORTANT: use non-dehosted trimmed reads as input)
 
 ### Description
 RNA-seq data can be processed using RASflow to perform standardized transcriptomic analysis, including QC, alignment/quantification, and differential expression analysis. This complements metagenomic results with host or functional transcriptomics.
@@ -450,9 +450,9 @@ Based on:
 - featureCounts  
 
 ### Inputs
-- Paired-end or single-end FASTQ files  
+- Paired-end or single-end FASTQ files (non-dehosted and trimmed)
 - Sample metadata table  
-- Reference genome or transcriptome  
+- Reference genome or transcriptome 
 
 ### Outputs
 - BAM alignment files or quantification matrices  
@@ -484,4 +484,4 @@ All Singularity image files (.def) used in this workflow are available directly 
 | Figure 4                             | scripts/figure4.R              |
 | Figure 5                             | scripts/figure5.R              |
 | Figure 6                             | scripts/figure6.R              |
-| Supplementary/extended Figures       | scripts/Additional_scripts.R   |
+| Supplementary Figures       | scripts/Additional_scripts.R   |
